@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= 'GH\ Game'
+  p Welcome to #{title}
+  #file-container
+    input#apk(type='file', name='apk')
+    a#upload.btn.btn-info Choose File
+    #fileName
+    a#submit.btn.btn-info Submit
+        
+  #resp_info
+  a#clear.btn.btn-warning Clear All
+  #tips
+    small Copyright@2015 GH-Game.
+  img#logo(src='./img/sleep.jpg')
