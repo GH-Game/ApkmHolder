@@ -124,7 +124,7 @@ jQuery.extend({
 				xml = null;
 			}
 		};
-		
+
 		// Timeout checker
 		if (s.timeout > 0) {
 			setTimeout(function() {
@@ -158,15 +158,19 @@ jQuery.extend({
 	uploadHttpData: function(r, type) {
 		var data = !type;
 		data = type == "xml" || data ? r.responseXML : r.responseText;
-		// If the type is "script", eval it in global context
-		if (type == "script")
-			jQuery.globalEval(data);
-		// Get the JavaScript object, if JSON is used.
-		if (type == "json")
-			data = jQuery.parseJSON(jQuery(data).text());
-		// evaluate scripts within html
-		if (type == "html")
-			jQuery("<div>").html(data).evalScripts();
+		if (!!) {
+			// If the type is "script", eval it in global context
+			if (type == "script")
+				jQuery.globalEval(data);
+			// Get the JavaScript object, if JSON is used.
+			if (type == "json")
+				data = jQuery.parseJSON(jQuery(data).text());
+			// evaluate scripts within html
+			if (type == "html")
+				jQuery("<div>").html(data).evalScripts();
+		} else {
+			data = '';
+		}
 
 		return data;
 	},

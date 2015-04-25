@@ -26,6 +26,7 @@
 			// Upload apk
 			$.ajaxFileUpload({
 				url: 'http://localhost:3001/upload', // Env PORT
+				// url: 'http://192.168.2.99:3001/upload', // Env PORT
 				secureuri: false,
 				fileElementId: "apk", // INPUT's name
 				dataType: 'json',
@@ -47,8 +48,12 @@
 					});
 				},
 				error: function(data, status, e) {
-					alert('UPLOAD failed');
-					console.log(e);
+					if (e.code == 18) {
+						console.log('WARNING cross-domain upload.');
+					} else {
+						alert('UPLOAD failed');
+						console.log(e);
+					}
 				}
 			});
 		});
