@@ -10,6 +10,7 @@
 
 			if (value == '') {
 				alert('There\'s no apk to upload.');
+				return;
 			} else {
 				var path = value.toLowerCase(),
 					filename = path.substring(path.lastIndexOf('\\') + 1, path.lastIndexOf('.')),
@@ -17,9 +18,11 @@
 
 				if (isChinese(filename)) {
 					alert('Only English Filename.');
+					return;
 				}
 				if (ext != 'apk') {
 					alert('Only APK supported.');
+					return;
 				}
 			}
 
@@ -185,6 +188,9 @@
 	}
 
 	function setOpInfo() {
+		// Empty filename text
+		$('#fileName').text('');
+
 		$.get('getops')
 			.success(function(ops) {
 				console.log('PULL success.');
