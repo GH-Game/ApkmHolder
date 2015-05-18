@@ -101,11 +101,22 @@ router.post('/upload', multipart(), function(req, res) {
 		filename = req.files.apk.originalFilename;
 
 	utils.upload(filePath, filename, function(data) {
-		if( !!data ){
+		if (!!data) {
 			res.json(data);
-		}else{
+		} else {
 			res.json(RET.UPLOAD_ERROR);
 		}
+	});
+});
+
+router.get('/version', multipart(), function(req, res) {
+
+	var url = "http:\/\/192.168.2.231:3001\/data\/apkm_v3.0.apk"
+
+	res.json({
+		version: "3.0",
+		url: url,
+		sizeInfo: "984GB"
 	});
 });
 

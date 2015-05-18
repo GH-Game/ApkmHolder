@@ -2,14 +2,14 @@
 
 	setOpInfo();
 	bindListener();
-	// animation(); //  Animation of animal
+	animation(); //  Animation of animal
 
 	function bindListener() {
 		$('#submit').bind('click', function(event) {
 			var value = $('#apk').val();
 
 			if (value == '') {
-				alert('There\'s no apk to upload.');
+				alert('apk文件为空');
 				return;
 			} else {
 				var path = value.toLowerCase(),
@@ -17,11 +17,11 @@
 					ext = path.substring(path.lastIndexOf('.') + 1, path.length);
 
 				if (isChinese(filename)) {
-					alert('Only English Filename.');
+					alert('文件名只支持中文');
 					return;
 				}
 				if (ext != 'apk') {
-					alert('Only APK supported.');
+					alert('只支持apk文件');
 					return;
 				}
 			}
@@ -83,7 +83,7 @@
 			$('#resp_info').empty();
 
 			var apkTable = $('<table>').addClass('table table-hover');
-			var thead = '<thead><tr><th>#</th><th>Package Name</th><th>File Name</th><th>Operation Type</th><th>Time</th><th></th></tr></thead>';
+			var thead = '<thead><tr><th>#</th><th>包名</th><th>文件名</th><th>操作类型</th><th>上传时间</th><th></th></tr></thead>';
 
 			apkTable.append(thead);
 
@@ -92,8 +92,8 @@
 			if (list.length == 0) {
 				var apkRow = $('<tr>');
 				var apkid = $('<td>').text(0),
-					pname = $('<td>').text('No Package.'),
-					fname = $('<td>').text('No File.'),
+					pname = $('<td>').text('暂无包名'),
+					fname = $('<td>').text('暂无文件'),
 					delTd = $('<td>').text('');
 
 				apkRow.append(apkid);
@@ -119,15 +119,15 @@
 
 					switch (list[i].op_type) {
 						case 0:
-							optype.text('Uploaded');
+							optype.text('我只想一个人静静');
 							delBtn.removeClass('no-choose');
 							break;
 						case 1:
-							optype.text('Install');
+							optype.text('主人，安装我吧');
 							insBtn.removeClass('no-choose');
 							break;
 						case 2:
-							optype.text('Uninstall');
+							optype.text('快来卸载我');
 							uninsBtn.removeClass('no-choose');
 							break;
 					}
@@ -202,6 +202,12 @@
 	}
 
 	function animation() {
+		var sleepImg = new Image(),
+			wakeImg = new Image();
+
+		sleepImg.src = './img/sleep.jpg';
+		wakeImg.src = './img/start.jpg';
+
 		var timer = setInterval(function() {
 
 			setTimeout(wake, 100);
@@ -210,11 +216,11 @@
 		}, 5000);
 
 		function sleep() {
-			$('#logo').attr('src', './img/sleep.jpg');
+			$('#logo').attr('src', sleepImg.src);
 		}
 
 		function wake() {
-			$('#logo').attr('src', './img/start.jpg');
+			$('#logo').attr('src', wakeImg.src);
 		}
 	}
 
