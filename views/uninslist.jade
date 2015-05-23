@@ -11,16 +11,12 @@ block content
     a#reboot.btn.btn-danger.apkm-btn 一键重启
 
   .apkm-file-container
-    input#apk.apkm-input(type='file', name='apk')
-    a#upload.btn.btn-info.apkm-btn.apk-upload 选择文件
-    #fileName.fileName
-    a#submit.btn.btn-info.apkm-btn 上传
-    
-  #resp_info
-  a#clear.btn.btn-warning.apkm-btn 全部清除
+    textarea.apkm-textarea
+
+  a#unins-submit.btn.btn-info.apkm-btn 确认
+  a#unins-reset.btn.btn-warning.apkm-btn 清空
   #tips
     small Copyright@2015 GH-Game.
   img#logo(src='./img/sleep.jpg')
 
-  script(src='./js/uploader.js')
-  script(src='./js/install.js')
+  script(src='./js/uninstall.js')

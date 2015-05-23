@@ -5,11 +5,13 @@ html
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/flat-ui.min.css')
     link(rel='stylesheet', href='/css/style.css')
+    script(type='text/javascript', src='/js/jQuery.min.js')
+    script(type='text/javascript', src='/js/flat-ui.min.js')
   body
     block content
 
-  script(type='text/javascript', src='/js/jQuery.min.js')
-  script(type='text/javascript', src='/js/flat-ui.min.js')
-  script(type='text/javascript', src='/js/uploader.js')
-  script(type='text/javascript', src='/js/apkmholder.js')
+  script.
+    $('#reboot').bind('click', function(){ alert('那是不可能的'); })
+
+
   

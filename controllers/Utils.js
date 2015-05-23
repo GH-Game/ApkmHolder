@@ -6,7 +6,7 @@ var path = require('path'),
 var opDao = require('../models/Operation.js');
 
 var FILEDIR = './public/data/',
-	Op_PATH = FILEDIR + 'Op.json';
+	UNINSTALL_PATH = FILEDIR + 'uninstall.json';
 
 var Utils = function() {};
 
@@ -123,6 +123,48 @@ Utils.prototype = {
 				}
 			});
 		});
+	},
+	setText: function(filePath, filename, callback) {
+		var newPath = FILEDIR + filename;
+
+		fs.readFile(filePath, function(err, data) {
+			if (err) {
+				callback(err);
+			}
+
+			fs.writeFile(newPath, data, function(err) {
+				if (err) {
+					callback(err)
+				} else {
+					callback();
+				}
+			});
+		});
+	},
+	setUninstallList: function(list, callback) {
+		var data = {};
+
+		data.list = [];
+		for( var i = 0, len = list.length; i < len; i++ ){
+			data.list.push({
+				package_name: list[i],
+				file_name: '',
+				op_type: 2,
+				user_id: 'ty',
+				time: new Date()
+			});
+		}
+
+		fs.writeFile(UNINSTALL_PATH, JSON.stringify(data), function(err) {
+			if (err) {
+				callback(err);
+			}else{
+				callback();
+			}
+		});
+	},
+	getUninstallList: function() {
+		return JSON.parse(fs.readFileSync(UNINSTALL_PATH));
 	},
 	getPackageName: function(filename, callback) {
 		var cmd = 'aapt dump badging ' + __dirname.substring(0, __dirname.lastIndexOf('/')) + '/public/data/' + filename,

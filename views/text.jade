@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= 'GH\ Game'
+  p Welcome to #{title}
+  nav
+    a(href='./')#inslist.btn.btn-primary.apkm-btn 安装列表
+    a(href='./uninslist')#uninstall.btn.btn-primary.apkm-btn 卸载列表
+    a(href='./text')#settext.btn.btn-primary.apkm-btn 修改喊话
+    a#reboot.btn.btn-danger.apkm-btn 一键重启
+
+  .apkm-file-container
+    p 喊话内容.txt
+    input#hhFile.apkm-input(type='file', name='hhtext')
+    a#hhUpload.btn.btn-info.apkm-btn.apk-upload 选择文件
+    #hhName.fileName
+    a#hhSubmit.btn.btn-info.apkm-btn 上传
+
+  .apkm-file-container
+    p 手机文本.txt
+    input#wbFile.apkm-input(type='file', name='wbtext')
+    a#wbUpload.btn.btn-info.apkm-btn.apk-upload 选择文件
+    #wbName.fileName
+    a#wbSubmit.btn.btn-info.apkm-btn 上传
+
+  #tips
+    small Copyright@2015 GH-Game.
+  img#logo(src='./img/sleep.jpg')
+
+  script(src='./js/uploader.js')
+  script(src='./js/settext.js')

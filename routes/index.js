@@ -8,12 +8,36 @@ var multipart = require('connect-multiparty');
 var utils = require('../controllers/Utils.js'),
 	RET = require('../models/RetCode.js');
 
+/*********************
+ *
+ * PAGE ROUTER
+ *
+ ********************* */
+
 /* GET home page. */
 router.get('/', function(req, res) {
 	res.render('index', {
 		title: 'Apkm Holder'
 	});
 });
+
+router.get('/text', function(req, res) {
+	res.render('text', {
+		title: 'Set Text'
+	});
+});
+
+router.get('/uninslist', function(req, res) {
+	res.render('uninslist', {
+		title: 'Set uninstall list'
+	});
+});
+
+/*********************
+ *
+ * CGI ROUTER
+ *
+ ********************* */
 
 /* PUSH an APK info */
 router.get('/push', function(req, res) {
@@ -109,15 +133,59 @@ router.post('/upload', multipart(), function(req, res) {
 	});
 });
 
-router.get('/version', multipart(), function(req, res) {
+router.get('/version', function(req, res) {
 
 	var url = "http:\/\/192.168.2.231:3001\/data\/apkm_v3.0.apk"
-
 	res.json({
 		version: "3.0",
 		url: url,
 		sizeInfo: "984GB"
 	});
+});
+
+router.post('/sethh', multipart(), function(req, res) {
+
+	var filePath = req.files.hhtext.path;
+
+	utils.setText(filePath, '喊话内容.txt', function(err) {
+		if (err) {
+			res.json(RET.HHTEXT_UPLOAD_ERROR);
+		} else {
+			res.json(RET.SUCCESS);
+		}
+	});
+});
+
+router.post('/setwb', multipart(), function(req, res) {
+
+	var filePath = req.files.wbtext.path;
+
+	utils.setText(filePath, '手机文本.txt', function(err) {
+		if (err) {
+			res.json(RET.WBTEXT_UPLOAD_ERROR);
+		} else {
+			res.json(RET.SUCCESS);
+		}
+	});
+});
+
+router.get('/uninstall', function(req, res) {
+
+	var content = req.query.content;
+
+	if (content == undefined) {
+		res.json(utils.getUninstallList());
+	} else {
+		// 添加list至 uninslist.json
+		var ulist = content.split('*');
+		utils.setUninstallList(ulist, function(err){
+			if(err){
+				res.json(RET.SET_UNINSTALL_ERROR);
+			}else{
+				res.json(RET.SUCCESS);
+			}
+		});
+	}
 });
 
 module.exports = router;

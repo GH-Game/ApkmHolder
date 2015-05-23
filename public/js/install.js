@@ -119,15 +119,15 @@
 
 					switch (list[i].op_type) {
 						case 0:
-							optype.text('我只想一个人静静');
+							optype.text('什么都不做');
 							delBtn.removeClass('no-choose');
 							break;
 						case 1:
-							optype.text('主人，安装我吧');
+							optype.text('安装这个包');
 							insBtn.removeClass('no-choose');
 							break;
 						case 2:
-							optype.text('快来卸载我');
+							optype.text('卸载这个包');
 							uninsBtn.removeClass('no-choose');
 							break;
 					}

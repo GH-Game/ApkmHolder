@@ -22,6 +22,21 @@ module.exports = {
 	FILE_DELETE_ERROR: {
 		code: 204,
 		descrip: 'Database delete failed'
-	}
-
+	},
+	SET_UNINSTALL_ERROR: {
+		code: 301,
+		descrip: 'Hhtext upload failed'
+	},
+	GET_UNINSTALL_ERROR: {
+		code: 302,
+		descrip: 'Wbtext upload failed'
+	},
+	HHTEXT_UPLOAD_ERROR: {
+		code: 401,
+		descrip: 'Hhtext upload failed'
+	},
+	WBTEXT_UPLOAD_ERROR: {
+		code: 402,
+		descrip: 'Wbtext upload failed'
+	},
 };
