@@ -1,31 +1,28 @@
-extends layout
+extends layout/default
 
 block content
-  h1= 'GH\ Game'
-  p Welcome to #{title}
-  nav
-    a(href='./')#inslist.btn.btn-primary.apkm-btn 安装列表
-    a(href='./uninslist')#uninstall.btn.btn-primary.apkm-btn 卸载列表
-    a(href='./text')#settext.btn.btn-primary.apkm-btn 修改喊话
-    a#reboot.btn.btn-danger.apkm-btn 一键重启
+  .row
+    .col-lg-12
+      h1.page-header 喊话内容
+  .row
+    .col-lg-12
+      h4 喊话内容.txt
+      input#hhFile.apkm-input(type='file', name='hhtext')
+      a#hhUpload.btn.btn-primary.apkm-btn.apk-upload 选择文件
+      #hhName.fileName
+      a#hhSubmit.btn.btn-primary.apkm-btn 上传
+      a#hhCheck.btn.btn-info.apkm-btn 查看
+    .col-lg-12
+      div(style='border-bottom: 1px dashed #ccc; margin: 30px 0 20px 0;')
 
-  .apkm-file-container
-    p 喊话内容.txt
-    input#hhFile.apkm-input(type='file', name='hhtext')
-    a#hhUpload.btn.btn-info.apkm-btn.apk-upload 选择文件
-    #hhName.fileName
-    a#hhSubmit.btn.btn-info.apkm-btn 上传
-
-  .apkm-file-container
-    p 手机文本.txt
-    input#wbFile.apkm-input(type='file', name='wbtext')
-    a#wbUpload.btn.btn-info.apkm-btn.apk-upload 选择文件
-    #wbName.fileName
-    a#wbSubmit.btn.btn-info.apkm-btn 上传
-
-  #tips
-    small Copyright@2015 GH-Game.
-  img#logo(src='./img/sleep.jpg')
+  .row
+    .col-lg-12
+      h4 手机文本.txt
+      input#wbFile.apkm-input(type='file', name='wbtext')
+      a#wbUpload.btn.btn-primary.apkm-btn.apk-upload 选择文件
+      #wbName.fileName
+      a#wbSubmit.btn.btn-primary.apkm-btn 上传
+      a#wbCheck.btn.btn-info.apkm-btn 查看
 
   script(src='./js/uploader.js')
   script(src='./js/settext.js')

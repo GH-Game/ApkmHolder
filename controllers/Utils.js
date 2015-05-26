@@ -5,7 +5,7 @@ var path = require('path'),
 
 var opDao = require('../models/Operation.js');
 
-var FILEDIR = './public/data/',
+var FILEDIR = './public/data/res/',
 	UNINSTALL_PATH = FILEDIR + 'uninstall.json';
 
 var Utils = function() {};
@@ -124,8 +124,14 @@ Utils.prototype = {
 			});
 		});
 	},
-	setText: function(filePath, filename, callback) {
-		var newPath = FILEDIR + filename;
+	setText: function(type, filePath, callback) {
+		var newPath = '';
+
+		if( type == 1 ){
+			newPath = FILEDIR + '喊话内容.txt';
+		}else if(type == 2){
+			newPath = FILEDIR + '手机文本.txt';
+		}
 
 		fs.readFile(filePath, function(err, data) {
 			if (err) {
@@ -141,11 +147,18 @@ Utils.prototype = {
 			});
 		});
 	},
+	getText: function(type, callback) {
+		if (type == 1) {
+			callback(fs.readFileSync(FILEDIR+'喊话内容.txt','utf-8'));
+		} else if (type == 2) {
+			callback(fs.readFileSync(FILEDIR+'手机文本.txt','utf-8'));
+		}
+	},
 	setUninstallList: function(list, callback) {
 		var data = {};
 
 		data.list = [];
-		for( var i = 0, len = list.length; i < len; i++ ){
+		for (var i = 0, len = list.length; i < len; i++) {
 			data.list.push({
 				package_name: list[i],
 				file_name: '',
@@ -158,7 +171,7 @@ Utils.prototype = {
 		fs.writeFile(UNINSTALL_PATH, JSON.stringify(data), function(err) {
 			if (err) {
 				callback(err);
-			}else{
+			} else {
 				callback();
 			}
 		});

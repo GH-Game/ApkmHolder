@@ -1,0 +1,16 @@
+extends layout/default
+
+block content
+  .row
+    .col-lg-12
+      h1.page-header 安装列表
+  .apkm-file-container
+    input#apk.apkm-input(type='file', name='apk')
+    a#upload.btn.btn-primary.apkm-btn.apk-upload 选择文件
+    #fileName.fileName
+    a#submit.btn.btn-primary.apkm-btn 上传
+    
+  #resp_info
+
+  script(src='./js/uploader.js')
+  script(src='./js/install.js')

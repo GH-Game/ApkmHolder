@@ -31,12 +31,12 @@ module.exports = {
 		code: 302,
 		descrip: 'Wbtext upload failed'
 	},
-	HHTEXT_UPLOAD_ERROR: {
+	TEXT_UPLOAD_ERROR: {
 		code: 401,
 		descrip: 'Hhtext upload failed'
 	},
-	WBTEXT_UPLOAD_ERROR: {
+	TEXT_GET_ERROR: {
 		code: 402,
 		descrip: 'Wbtext upload failed'
-	},
+	}
 };

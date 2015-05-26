@@ -21,14 +21,20 @@ router.get('/', function(req, res) {
 	});
 });
 
-router.get('/text', function(req, res) {
+router.get('/textpage', function(req, res) {
 	res.render('text', {
 		title: 'Set Text'
 	});
 });
 
-router.get('/uninslist', function(req, res) {
-	res.render('uninslist', {
+router.get('/inspage', function(req, res) {
+	res.render('install', {
+		title: 'Apkm Holder'
+	});
+});
+
+router.get('/uninspage', function(req, res) {
+	res.render('uninstall', {
 		title: 'Set uninstall list'
 	});
 });
@@ -143,28 +149,32 @@ router.get('/version', function(req, res) {
 	});
 });
 
-router.post('/sethh', multipart(), function(req, res) {
+router.post('/settext', multipart(), function(req, res) {
 
-	var filePath = req.files.hhtext.path;
+	var type = req.query.type,
+		filePath = req.files.hhtext.path;
 
-	utils.setText(filePath, '喊话内容.txt', function(err) {
+	utils.setText(type, filePath, function(err) {
 		if (err) {
-			res.json(RET.HHTEXT_UPLOAD_ERROR);
+			res.json(RET.TEXT_UPLOAD_ERROR);
 		} else {
 			res.json(RET.SUCCESS);
 		}
 	});
 });
 
-router.post('/setwb', multipart(), function(req, res) {
+router.get('/gettext', function(req, res) {
 
-	var filePath = req.files.wbtext.path;
+	var type = req.query.type;
 
-	utils.setText(filePath, '手机文本.txt', function(err) {
-		if (err) {
-			res.json(RET.WBTEXT_UPLOAD_ERROR);
+	utils.getText(type, function(data) {
+		if (!!data) {
+			var ret = RET.SUCCESS;
+			ret.data = data;
+			
+			res.json(ret);
 		} else {
-			res.json(RET.SUCCESS);
+			res.json(RET.TEXT_GET_ERROR);
 		}
 	});
 });
@@ -178,10 +188,10 @@ router.get('/uninstall', function(req, res) {
 	} else {
 		// 添加list至 uninslist.json
 		var ulist = content.split('*');
-		utils.setUninstallList(ulist, function(err){
-			if(err){
+		utils.setUninstallList(ulist, function(err) {
+			if (err) {
 				res.json(RET.SET_UNINSTALL_ERROR);
-			}else{
+			} else {
 				res.json(RET.SUCCESS);
 			}
 		});

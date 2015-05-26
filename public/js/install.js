@@ -28,8 +28,7 @@
 
 			// Upload apk
 			$.ajaxFileUpload({
-				url: 'http://localhost:3001/upload', // Env PORT
-				// url: 'http://192.168.2.99:3001/upload', // Env PORT
+				url: '/upload', 
 				secureuri: false,
 				fileElementId: "apk", // INPUT's name
 				dataType: 'json',
@@ -82,8 +81,8 @@
 
 			$('#resp_info').empty();
 
-			var apkTable = $('<table>').addClass('table table-hover');
-			var thead = '<thead><tr><th>#</th><th>包名</th><th>文件名</th><th>操作类型</th><th>上传时间</th><th></th></tr></thead>';
+			var apkTable = $('<table>').addClass('table table-hover').attr('id', 'installTables');
+			var thead = '<thead><tr role="row"><th>#</th><th>包名</th><th>文件名</th><th>上传时间</th><th>操作类型</th><th>操作</th></tr></thead>';
 
 			apkTable.append(thead);
 
@@ -108,14 +107,14 @@
 					var apkid = $('<td>').text(i + 1).addClass('apkid'),
 						pname = $('<td>').text(list[i].package_name).addClass('pname'),
 						fname = $('<td>').text(list[i].file_name).addClass('fname'),
-						optype = $('<td>').addClass('optype'),
 						time = $('<td>').text(list[i].time).addClass('time'),
+						optype = $('<td>').addClass('optype'),
 						ins = $('<td>'),
 						unins = $('<td>'),
 						delTd = $('<td>'),
-						insBtn = $('<a>').text('⬆').addClass('op no-choose btn btn-primary'),
-						uninsBtn = $('<a>').text('⬇').addClass('op no-choose btn btn-warning'),
-						delBtn = $('<a>').text('×').addClass('op no-choose btn btn-danger');
+						insBtn = $('<a>').addClass('op no-choose btn btn-primary').html('<p class="fa fa-arrow-up"></p>'),
+						uninsBtn = $('<a>').addClass('op no-choose btn btn-warning').html('<p class="fa fa-arrow-down"></p>'),
+						delBtn = $('<a>').addClass('op no-choose btn btn-danger').html('<p class="fa fa-pause"></p>');
 
 					switch (list[i].op_type) {
 						case 0:
@@ -123,11 +122,11 @@
 							delBtn.removeClass('no-choose');
 							break;
 						case 1:
-							optype.text('安装这个包');
+							optype.text('安装');
 							insBtn.removeClass('no-choose');
 							break;
 						case 2:
-							optype.text('卸载这个包');
+							optype.text('卸载');
 							uninsBtn.removeClass('no-choose');
 							break;
 					}
@@ -184,6 +183,10 @@
 			}
 
 			$('#resp_info').append(apkTable);
+			$('#installTables').DataTable({
+		        responsive: true,
+		        bLengthChange: false,
+		    });
 		}
 	}
 

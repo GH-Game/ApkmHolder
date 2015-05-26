@@ -1,32 +1,29 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(67, 128, 117);
-  color: #fff;
-}
 
-nav .apkm-btn {
-
-}
+/********
+ *
+ * APKMHOLDER STYLE
+ *
+ ******** */
 
 .apkm-btn {
 	width: 120px;
 	font-size: 14px;
-	line-height: 1;
 	margin-right: 20px;
 }
 
 .apkm-file-container {
-	overflow: hidden;
 	min-height: 50px;
-	margin: 20px 0 0 0;
+	margin-bottom: -55px;
+	position: relative;
+	z-index: 1000;
+	float: left;
 }
 
 .apkm-input {
 	float: left;
 	display: block;
 	width: 120px;
-	height: 34px;
+	height: 35px;
 	opacity: 0;
 	cursor: pointer;
 }
@@ -43,11 +40,13 @@ nav .apkm-btn {
 	float: left;
 	width: 180px;
 	height: 34px;
-	border: 1px solid #46b8da;
+	border: 1px solid #337ab7;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 	background-color: #fff;
-	margin-right: 20px;
-	line-height: 34px;
-	padding-left: 10px; 
+	margin-right: 20px; 
+	line-height: 35px;
 }
 
 .apk-upload {
@@ -55,10 +54,12 @@ nav .apkm-btn {
 	margin-left: -120px;
 	margin-right: -20px;
 	cursor: pointer;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 #toggle button {
-	height: 34px;
+	height: 35px;
 	width: 120px;
 	font-size: 14px;
 	line-height: 1;
@@ -74,27 +75,16 @@ nav .apkm-btn {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	position: relative;
-	padding: 45px 15px 15px;
+	padding: 0;
 }
 
-#resp_info:after {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-	font-size: 12px;
-	font-weight: 700;
-	color: #959595;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	content: "APK FILE's LIST:";
+#resp_info label {
+	padding: 5px 0 10px 0;
+	margin-bottom: 0;
 }
 
-table {
-	color: #000;
+#installTables thead {
 	border-top: 1px solid #000;
-}
-
-thead {
 	background-color: #eee;
 }
 
@@ -103,14 +93,17 @@ thead {
 }
 
 .op {
-	width: 20px;
 	padding: 0;
-	border-radius: 10px;
-	line-height: 20px;
-	font-size: 16px;
-	vertical-align: middle;
-	overflow: hidden;
-	margin: 0 10px;
+	margin-right: 5px;
+	border-radius: 100% 100%;
+	line-height: 1;
+}
+
+.op .fa {
+	width: 20px;
+	height: 20px;
+	padding-top: 3px;
+	margin: 0;
 }
 
 .op:hover {
@@ -121,7 +114,9 @@ thead {
 }
 
 .no-choose {
+	opacity: .65;
 	background-color: #ccc;
+	border: 1px solid #ccc;
 }
 
 @-webkit-keyframes shake /* Safari and Chrome */
@@ -135,8 +130,12 @@ thead {
 	margin-top: 20px;
 }
 
-#tips {
-	margin-top:100px;
+footer {
+	margin-top: 50px;
+	border-top: 1px solid #e7e7e7;
+	color: #ccc;
+	padding: 10px 0 30px 0; 
+	display: block;
 }
 
 #logo {

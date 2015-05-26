@@ -1,0 +1,16 @@
+extends layout/default
+
+block content
+  .row
+    .col-lg-12
+      h1.page-header 卸载列表
+  .row
+    .col-lg-12
+      textarea.apkm-textarea(placeholder='请输入删除包名列表, 以回车结束')
+  .row
+    .col-lg-12
+      a#uninsSubmit.btn.btn-primary.apkm-btn 确认
+      a#uninsReset.btn.btn-warning.apkm-btn 清空
+      a#uninsCheck.btn.btn-info.apkm-btn 查看
+
+  script(src='./js/uninstall.js')

@@ -1,7 +1,5 @@
 (function() {
 
-	var SERVER_URL = 'http://localhost:3001/';
-
 	bindListener();
 	animation(); //  Animation of animal
 
@@ -25,7 +23,7 @@
 			}
 
 			$.ajaxFileUpload({
-				url: SERVER_URL + 'sethh', 
+				url: '/settext?type=1', 
 				secureuri: false,
 				fileElementId: "hhFile", // INPUT's name
 				dataType: 'json',
@@ -77,7 +75,7 @@
 			}
 
 			$.ajaxFileUpload({
-				url: SERVER_URL + 'setwb', 
+				url: '/settext?type=2', 
 				secureuri: false,
 				fileElementId: "wbFile", // INPUT's name
 				dataType: 'json',
@@ -128,6 +126,26 @@
 				fileName = path.substring(path.lastIndexOf('\\') + 1, path.length);
 				$('#wbName').text(fileName);
 			}
+		});
+
+		$('#hhCheck').bind('click', function(event) {
+			$.get('gettext?type=1')
+				.success(function(ret){
+					alert(ret.data);
+				})
+				.error(function(){
+					alert('喊话内容查看失败！')
+				});
+		});
+
+		$('#wbCheck').bind('click', function(event) {
+			$.get('gettext?type=2')
+				.success(function(ret){
+					alert(ret.data);
+				})
+				.error(function(){
+					alert('手机文本查看失败！')
+				});
 		});
 	}
 
