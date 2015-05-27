@@ -5,7 +5,8 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
       span.icon-bar
       span.icon-bar
       span.icon-bar
-    a.navbar-brand(href="index.html") 光环手游 妙蛙种子系统
+    a.navbar-brand(href="index.html") 妙蛙种子 作战系统
+
   // /.navbar-header
   ul.nav.navbar-top-links.navbar-right
     li.dropdown
@@ -175,34 +176,34 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
                 i.fa.fa-search
           // /input-group
         li
-          a(href="index.html")
+          a(href="/")
             i.fa.fa-dashboard.fa-fw
             |  控制台
         li
           a(href="#")
             i.fa.fa-android.fa-fw
-            |  妙蛙种子
+            |  设备操作
             span.fa.arrow
           ul.nav.nav-second-level
             li
-              a(href="./inspage") 安装列表
+              a(href="/apkm/inspage") 安装列表
             li
-              a(href="./uninspage") 卸载列表
+              a(href="/apkm/uninspage") 卸载列表
             li
-              a(href="./textpage") 喊话内容
+              a(href="/apkm/textpage") 喊话内容
             li
-              a(href="./version") 版本控制
+              a(href="/apkm/version") 版本控制
           // /.nav-second-level
         li
-          a(href="tables.html")
+          a(href="#")
             i.fa.fa-gamepad.fa-fw
             |  游戏下载
             span.fa.arrow
           ul.nav.nav-second-level
             li
-              a(href="./") 游戏下载文件
+              a(href="/download/file") 渠道包下载地址
             li
-              a(href="./uninspage") 游戏下载地址
+              a(href="/download/address") 官方包下载地址
         li
           a(href="#")
             i.fa.fa-bar-chart-o.fa-fw
@@ -210,9 +211,11 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
             span.fa.arrow
           ul.nav.nav-second-level
             li
-              a(href="blank.html") Blank Page
-            li
-              a(href="login.html") Login Page
+              a(href="/report") 统计列表
+        li
+          a(target="_blank" href="http://admin.ghzhushou.com/game_center")
+            i.fa.fa-sun-o.fa-fw
+            |  手游后台
           // /.nav-second-level
     // /.sidebar-collapse
   // /.navbar-static-side

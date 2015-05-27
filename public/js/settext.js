@@ -1,7 +1,6 @@
 (function() {
 
 	bindListener();
-	animation(); //  Animation of animal
 
 	function bindListener() {
 		$('#hhSubmit').bind('click', function(event) {
@@ -23,7 +22,7 @@
 			}
 
 			$.ajaxFileUpload({
-				url: '/settext?type=1', 
+				url: '/apkm/settext?type=1', 
 				secureuri: false,
 				fileElementId: "hhFile", // INPUT's name
 				dataType: 'json',
@@ -75,7 +74,7 @@
 			}
 
 			$.ajaxFileUpload({
-				url: '/settext?type=2', 
+				url: '/apkm/settext?type=2', 
 				secureuri: false,
 				fileElementId: "wbFile", // INPUT's name
 				dataType: 'json',
@@ -147,28 +146,5 @@
 					alert('手机文本查看失败！')
 				});
 		});
-	}
-
-	function animation() {
-		var sleepImg = new Image(),
-			wakeImg = new Image();
-
-		sleepImg.src = './img/sleep.jpg';
-		wakeImg.src = './img/start.jpg';
-
-		var timer = setInterval(function() {
-
-			setTimeout(wake, 100);
-			setTimeout(sleep, 1000);
-
-		}, 5000);
-
-		function sleep() {
-			$('#logo').attr('src', sleepImg.src);
-		}
-
-		function wake() {
-			$('#logo').attr('src', wakeImg.src);
-		}
 	}
 })();

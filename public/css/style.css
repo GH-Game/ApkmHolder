@@ -47,6 +47,7 @@
 	background-color: #fff;
 	margin-right: 20px; 
 	line-height: 35px;
+	padding-left: 10px;
 }
 
 .apk-upload {
@@ -138,10 +139,9 @@ footer {
 	display: block;
 }
 
-#logo {
-	position: absolute;
-	top: 180px;
-	right: 40px;
+#anim {
+	margin-top: 20%;
+	margin-right: 50%;
 	width: 100px;
 	height: 100px;
 }

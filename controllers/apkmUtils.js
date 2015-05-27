@@ -5,7 +5,8 @@ var path = require('path'),
 
 var opDao = require('../models/Operation.js');
 
-var FILEDIR = './public/data/res/',
+var FILEDIR = './public/data/',
+	RESOURCE_PATH = FILEDIR + 'res/',
 	UNINSTALL_PATH = FILEDIR + 'uninstall.json';
 
 var Utils = function() {};
@@ -52,7 +53,6 @@ Utils.prototype = {
 			if (!err) {
 				callback(op)
 			} else {
-				console.log(err);
 				callback();
 			}
 		});
@@ -128,9 +128,9 @@ Utils.prototype = {
 		var newPath = '';
 
 		if( type == 1 ){
-			newPath = FILEDIR + '喊话内容.txt';
+			newPath = RESOURCE_PATH + '喊话内容.txt';
 		}else if(type == 2){
-			newPath = FILEDIR + '手机文本.txt';
+			newPath = RESOURCE_PATH + '手机文本.txt';
 		}
 
 		fs.readFile(filePath, function(err, data) {

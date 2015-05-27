@@ -1,7 +1,6 @@
 (function() {
 
 	bindListener();
-	animation(); //  Animation of animal
 
 	function bindListener() {
 		$('#uninsSubmit').bind('click', function(event) {
@@ -12,7 +11,7 @@
 				return;
 			}
 
-			$.get('uninstall?content=' + value)
+			$.get('apkm/uninstall?content=' + value)
 				.success(function(ret) {
 					if (ret.code == 1) {
 						alert('删除列表保存成功');
@@ -41,28 +40,5 @@
 					console.log('UNINSTALL failed.');
 				});
 		});
-	}
-
-	function animation() {
-		var sleepImg = new Image(),
-			wakeImg = new Image();
-
-		sleepImg.src = './img/sleep.jpg';
-		wakeImg.src = './img/start.jpg';
-
-		var timer = setInterval(function() {
-
-			setTimeout(wake, 100);
-			setTimeout(sleep, 1000);
-
-		}, 5000);
-
-		function sleep() {
-			$('#logo').attr('src', sleepImg.src);
-		}
-
-		function wake() {
-			$('#logo').attr('src', wakeImg.src);
-		}
 	}
 })();

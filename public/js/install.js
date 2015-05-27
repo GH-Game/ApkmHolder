@@ -2,7 +2,7 @@
 
 	setOpInfo();
 	bindListener();
-	animation(); //  Animation of animal
+	// animation(); //  Animation of animal
 
 	function bindListener() {
 		$('#submit').bind('click', function(event) {
@@ -28,7 +28,7 @@
 
 			// Upload apk
 			$.ajaxFileUpload({
-				url: '/upload', 
+				url: '/apkm/upload', 
 				secureuri: false,
 				fileElementId: "apk", // INPUT's name
 				dataType: 'json',
@@ -204,29 +204,29 @@
 			});
 	}
 
-	function animation() {
-		var sleepImg = new Image(),
-			wakeImg = new Image();
+	// function animation() {
+	// 	var sleepImg = new Image(),
+	// 		wakeImg = new Image();
 
-		sleepImg.src = './img/sleep.jpg';
-		wakeImg.src = './img/start.jpg';
+	// 	sleepImg.src = './img/sleep.jpg';
+	// 	wakeImg.src = './img/start.jpg';
 
-		var timer = setInterval(function() {
+	// 	var timer = setInterval(function() {
 
-			setTimeout(wake, 100);
-			setTimeout(sleep, 1000);
+	// 		setTimeout(wake, 100);
+	// 		setTimeout(sleep, 1000);
 
-		}, 5000);
+	// 	}, 5000);
 
-		function sleep() {
-			$('#logo').attr('src', sleepImg.src);
-		}
+	// 	function sleep() {
+	// 		$('#logo').attr('src', sleepImg.src);
+	// 	}
 
-		function wake() {
-			$('#logo').attr('src', wakeImg.src);
-		}
-	}
-
+	// 	function wake() {
+	// 		$('#logo').attr('src', wakeImg.src);
+	// 	}
+	// }
+	
 	function isChinese(str) {
 		var reg = /^[\u4E00-\u9FA5]{2,4}$/i;
 		return reg.test(str);
