@@ -145,3 +145,18 @@ footer {
 	width: 100px;
 	height: 100px;
 }
+
+.bulbasaur {
+	margin: 120px 0 0 0;
+	float: right;
+}
+
+.bulbasaur-rotate {
+	-webkit-transform:rotateY(180deg);
+}
+
+.bulbasaur tr, .bulbasaur td {
+	height: 10px;
+	width: 10px;
+	/*border: 1px solid #ccc;*/
+}
