@@ -1,0 +1,73 @@
+extends ../../layout/default
+
+block content
+  .row
+    .col-lg-12
+      h1.page-header 插件用户数据统计
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+          small 2015年05月23日
+        .panel-body
+          table#example.table.table-striped.table-bordered
+            thead
+              tr
+                td 游戏
+                td 新增
+                td 总数
+                td 总次数
+                td 平均次数
+            tbody
+              tr
+                td 航海王启航
+                td 21
+                td 371
+                td 1693
+                td 4.0
+              tr
+                td 少年三国志
+                td 767
+                td 11682
+                td 50858
+                td 4.0
+              tr
+                td 去吧皮卡丘
+                td 55
+                td 506
+                td 1955
+                td 3.0
+              tr
+                td 放开那三国
+                td 695
+                td 1700
+                td 12923
+                td 7.0
+              tr
+                td 新仙剑奇侠传
+                td 34
+                td 234
+                td 1034
+                td 4.0
+              tr
+                td 刀塔传奇
+                td 30
+                td 225
+                td 706
+                td 3.0
+              tr
+                td 少年三国志(公会)
+                td 180
+                td -
+                td -
+                td -
+              tr
+                td 少年三国志(新九游)
+                td 173
+                td 1335
+                td 5415
+                td 4.0
+    script.
+        $(document).ready(function() {
+            $('#example').dataTable();
+        });
