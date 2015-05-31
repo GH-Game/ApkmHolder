@@ -12,4 +12,10 @@ router.get('/', function(req, res) {
 	});
 });
 
+router.get('/console', function(req, res) {
+	res.render('index', {
+		title: 'Apkm Holder'
+	});
+});
+
 module.exports = router;

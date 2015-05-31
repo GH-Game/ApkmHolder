@@ -1,0 +1,80 @@
+extends ../../layout/default
+
+block content
+  .row
+    .col-lg-12
+      h1.page-header 用户使用次数(PV)统计
+  .row
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='sn')
+          | 少年三国志
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='sn_gh')
+          | 少年三国志(公会)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='sn_9u')
+          | 少年三国志(9u)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='sn_360')
+          | 少年三国志(360)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='sn_baidu')
+          | 少年三国志(百度)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='pkq')
+          | 去吧皮卡丘
+  .row
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='fk')
+          | 放开那三国
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='fk_360')
+          | 放开那三国(360)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='fk_baidu')
+          | 放开那三国(百度)
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='dt')
+          | 刀塔传奇
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='xxj')
+          | 新仙剑奇侠传
+    .col-lg-2
+      .checkbox
+        label
+          input(type='checkbox' checked data='hhw')
+          | 航海王
+  #data(style="display: none;")= data
+
+  .row
+    .col-lg-12
+      #chart-container
+        #chart
+      
+  script(src='/bower_components/raphael/raphael-min.js') 
+  script(src='/bower_components/morrisjs/morris.js')
+  script(src='/js/chart.js')
+
+

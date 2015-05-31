@@ -42,11 +42,11 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
                 i.fa.fa-search
           // /input-group
         li
-          a(href="/")
+          a(href="/console")
             i.fa.fa-dashboard.fa-fw
             |  控制台
         li
-          a(href="#")
+          a(href="/apkm")
             i.fa.fa-android.fa-fw
             |  设备操作
             span.fa.arrow
@@ -61,7 +61,7 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
               a(target="_blank" href="/apkm/version") 版本控制
           // /.nav-second-level
         li
-          a(href="#")
+          a(href="download")
             i.fa.fa-gamepad.fa-fw
             |  游戏下载
             span.fa.arrow
@@ -74,10 +74,23 @@ nav.navbar.navbar-default.navbar-static-top(role="navigation", style="margin-bot
           a(href="/report")
             i.fa.fa-bar-chart-o.fa-fw
             |  数据统计
-            // span.fa.arrow
-          // ul.nav.nav-second-level
-            // li
-              // a(href="/report") 统计列表
+            span.fa.arrow
+          ul.nav.nav-second-level
+            li
+              a(href="/report/list") 时间列表
+            li
+              a(href="/report/chart") 
+                |  曲线统计
+                span.fa.arrow
+              ul.nav.nav-third-level
+                li
+                  a(href="/report/chart/add") 用户新增
+                li
+                  a(href="/report/chart/uv") 用户总人数
+                li
+                  a(href="/report/chart/pv") 用户使用次数
+                li
+                  a(href="/report/chart/avg") 平均使用次数
         li
           a(target="_blank" href="http://admin.ghzhushou.com/game_center")
             i.fa.fa-sun-o.fa-fw
