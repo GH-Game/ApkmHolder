@@ -1,0 +1,109 @@
+extends ../../layout/default
+
+block content
+  .row
+    .col-lg-12
+      h1.page-header 插件用户数据统计
+  .row
+    .col-lg-12
+        .panel.panel-default
+           .panel-heading
+                small 2015年06月04日
+            .panel-body
+                table#example.table.table-striped.table-bordered
+                    thead
+                        tr
+                            td 游戏
+                            td 新增
+                            td 总数
+                            td 总次数
+                            td 平均次数
+                    tbody
+                        tr
+                            td 航海王启航
+                            td 37
+                            td 511
+                            td 1945
+                            td 3.0
+
+                        tr
+                            td 少年三国志
+                            td 741
+                            td 13496
+                            td 51339
+                            td 3.0
+
+                        tr
+                            td 去吧皮卡丘
+                            td 117
+                            td 627
+                            td 1713
+                            td 2.0
+
+                        tr
+                            td 放开那三国
+                            td 369
+                            td 7264
+                            td 47741
+                            td 6.0
+
+                        tr
+                            td 新仙剑奇侠传
+                            td 39
+                            td 373
+                            td 1543
+                            td 4.0
+
+                        tr
+                            td 刀塔传奇
+                            td 30
+                            td 316
+                            td 889
+                            td 2.0
+
+                        tr
+                            td 少年三国志(公会) 
+                            td 168
+                            td - 
+                            td - 
+                            td - 
+
+                        tr
+                            td 少年三国志(新九游) 
+                            td 162
+                            td 3288
+                            td 11882
+                            td 3.0
+
+                        tr
+                            td 少年三国志(360) 
+                            td 70
+                            td 1014
+                            td 4004
+                            td 3.0
+
+                        tr
+                            td 少年三国志(百度) 
+                            td 49
+                            td 552
+                            td 2216
+                            td 4.0
+
+                        tr
+                            td 放开那三国(360) 
+                            td 35
+                            td 548
+                            td 3122
+                            td 5.0
+
+                        tr
+                            td 放开那三国(百度) 
+                            td 72
+                            td 772
+                            td 6113
+                            td 7.0
+
+    script.
+        $(document).ready(function() {
+            $('#example').dataTable();
+        });
