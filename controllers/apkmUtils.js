@@ -180,7 +180,7 @@ Utils.prototype = {
 		return JSON.parse(fs.readFileSync(UNINSTALL_PATH));
 	},
 	getPackageName: function(filename, callback) {
-		var cmd = 'aapt dump badging ' + __dirname.substring(0, __dirname.lastIndexOf('/')) + '/public/data/' + filename,
+		var cmd = './bin/aapt dump badging ' + __dirname.substring(0, __dirname.lastIndexOf('/')) + '/public/data/' + filename,
 			last = exec(cmd);
 
 		last.stdout.on('data', function(data) {
